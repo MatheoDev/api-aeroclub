@@ -9,7 +9,6 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="civilite")
  * @ORM\Entity
- * @ORM\Entity(repositoryClass="App\Repository\CiviliteRepository")
  */
 class Civilite
 {
@@ -21,7 +20,7 @@ class Civilite
      * @ORM\GeneratedValue(strategy="SEQUENCE")
      * @ORM\SequenceGenerator(sequenceName="civilite_num_civilite_seq", allocationSize=1, initialValue=1)
      */
-    private $numCivilite = '0';
+    private $numCivilite;
 
     /**
      * @var string|null

@@ -9,7 +9,6 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="instructeurs", indexes={@ORM\Index(name="i_fk_instructeurs_civilite", columns={"num_civilite"})})
  * @ORM\Entity
- * @ORM\Entity(repositoryClass="App\Repository\InstructeursRepository")
  */
 class Instructeurs
 {
@@ -42,7 +41,7 @@ class Instructeurs
      *
      * @ORM\Column(name="taux_instructeur", type="decimal", precision=10, scale=0, nullable=true)
      */
-    private $tauxInstructeur = '0';
+    private $tauxInstructeur;
 
     /**
      * @var string|null

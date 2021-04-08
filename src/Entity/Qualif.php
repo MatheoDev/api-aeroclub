@@ -9,7 +9,6 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="qualif")
  * @ORM\Entity
- * @ORM\Entity(repositoryClass="App\Repository\QualifRepository")
  */
 class Qualif
 {
@@ -21,7 +20,7 @@ class Qualif
      * @ORM\GeneratedValue(strategy="SEQUENCE")
      * @ORM\SequenceGenerator(sequenceName="qualif_num_qualif_seq", allocationSize=1, initialValue=1)
      */
-    private $numQualif = '0';
+    private $numQualif;
 
     /**
      * @var string|null

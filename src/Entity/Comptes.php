@@ -9,7 +9,6 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="comptes", indexes={@ORM\Index(name="i_fk_comptes_membres", columns={"num_membre"})})
  * @ORM\Entity
- * @ORM\Entity(repositoryClass="App\Repository\ComptesRepository")
  */
 class Comptes
 {
@@ -28,7 +27,7 @@ class Comptes
      *
      * @ORM\Column(name="num_seq", type="bigint", nullable=true)
      */
-    private $numSeq = '0';
+    private $numSeq;
 
     /**
      * @var \DateTime|null
@@ -42,14 +41,14 @@ class Comptes
      *
      * @ORM\Column(name="credit", type="decimal", precision=10, scale=0, nullable=true)
      */
-    private $credit = '0';
+    private $credit;
 
     /**
      * @var string|null
      *
      * @ORM\Column(name="debit", type="decimal", precision=10, scale=0, nullable=true)
      */
-    private $debit = '0';
+    private $debit;
 
     /**
      * @var string|null
@@ -63,7 +62,7 @@ class Comptes
      *
      * @ORM\Column(name="autocreation", type="boolean", nullable=true)
      */
-    private $autocreation = false;
+    private $autocreation;
 
     /**
      * @var \Membres

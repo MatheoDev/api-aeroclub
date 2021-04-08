@@ -12,7 +12,6 @@ use ApiPlatform\Core\Annotation\ApiResource;
  *
  * @ORM\Table(name="avions")
  * @ORM\Entity
- * @ORM\Entity(repositoryClass="App\Repository\AvionsRepository")
  * @ApiResource()
  */
 class Avions

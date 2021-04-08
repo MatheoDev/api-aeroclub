@@ -9,7 +9,6 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="seq_vol", indexes={@ORM\Index(name="i_fk_seq_vol_instructeurs", columns={"num_instructeur"}), @ORM\Index(name="i_fk_seq_vol_avions", columns={"num_avion"}), @ORM\Index(name="i_fk_seq_vol_membres", columns={"num_membre"})})
  * @ORM\Entity
- * @ORM\Entity(repositoryClass="App\Repository\SeqVolRepository")
  */
 class SeqVol
 {
@@ -35,14 +34,14 @@ class SeqVol
      *
      * @ORM\Column(name="temps", type="integer", nullable=true)
      */
-    private $temps = '0';
+    private $temps;
 
     /**
      * @var string|null
      *
      * @ORM\Column(name="prix_special", type="decimal", precision=10, scale=0, nullable=true)
      */
-    private $prixSpecial = '0';
+    private $prixSpecial;
 
     /**
      * @var string|null

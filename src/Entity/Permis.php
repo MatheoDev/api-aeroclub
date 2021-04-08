@@ -11,7 +11,6 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="permis")
  * @ORM\Entity
- * @ORM\Entity(repositoryClass="App\Repository\PermisRepository")
  */
 class Permis
 {

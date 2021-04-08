@@ -2,16 +2,17 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Forfait
  *
  * @ORM\Table(name="forfait")
  * @ORM\Entity
- * @ORM\Entity(repositoryClass="App\Repository\ForfaitRepository")
+ * @ApiResource()
  */
 class Forfait
 {
@@ -38,6 +39,13 @@ class Forfait
      * @ORM\Column(name="heure", type="integer", nullable=true)
      */
     private $heure;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="prix", type="integer", nullable=true)
+     */
+    private $prix;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -79,6 +87,18 @@ class Forfait
     public function setHeure(?int $heure): self
     {
         $this->heure = $heure;
+
+        return $this;
+    }
+
+    public function getPrix(): ?int
+    {
+        return $this->prix;
+    }
+
+    public function setPrix(?int $prix): self
+    {
+        $this->prix = $prix;
 
         return $this;
     }

@@ -11,7 +11,6 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="membres", indexes={@ORM\Index(name="i_fk_membres_qualif", columns={"num_qualif"}), @ORM\Index(name="i_fk_membres_civilite", columns={"num_civilite"})})
  * @ORM\Entity
- * @ORM\Entity(repositoryClass="App\Repository\MembresRepository")
  */
 class Membres
 {
@@ -156,7 +155,7 @@ class Membres
      *
      * @ORM\Column(name="membre_inscrit", type="boolean", nullable=true)
      */
-    private $membreInscrit = false;
+    private $membreInscrit;
 
     /**
      * @var string|null
