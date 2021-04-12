@@ -200,6 +200,11 @@ class Membres
     private $id;
 
     /**
+     * @ORM\OneToOne(targetEntity=User::class, cascade={"persist", "remove"})
+     */
+    private $uueract;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -496,6 +501,18 @@ class Membres
     public function removeId(Permis $id): self
     {
         $this->id->removeElement($id);
+
+        return $this;
+    }
+
+    public function getUueract(): ?User
+    {
+        return $this->uueract;
+    }
+
+    public function setUueract(?User $uueract): self
+    {
+        $this->uueract = $uueract;
 
         return $this;
     }
