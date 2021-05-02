@@ -3,12 +3,17 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 
 /**
  * SeqVol
  *
  * @ORM\Table(name="seq_vol", indexes={@ORM\Index(name="i_fk_seq_vol_instructeurs", columns={"num_instructeur"}), @ORM\Index(name="i_fk_seq_vol_avions", columns={"num_avion"}), @ORM\Index(name="i_fk_seq_vol_membres", columns={"num_membre"})})
  * @ORM\Entity
+ * @ApiResource()
+ * @ApiFilter(SearchFilter::class, properties={"numMembre": "exact"})
  */
 class SeqVol
 {

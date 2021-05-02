@@ -2,15 +2,20 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use Doctrine\Common\Collections\Collection;
+use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\Common\Collections\ArrayCollection;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 
 /**
  * Membres
  *
  * @ORM\Table(name="membres", indexes={@ORM\Index(name="i_fk_membres_qualif", columns={"num_qualif"}), @ORM\Index(name="i_fk_membres_civilite", columns={"num_civilite"})})
  * @ORM\Entity
+ * @ApiResource()
+ * @ApiFilter(SearchFilter::class, properties={"uueract": "exact"})
  */
 class Membres
 {

@@ -1,0 +1,38 @@
+<?php
+
+namespace App\DataProvider;
+
+use App\Entity\SeqVol;
+use App\Repository\SeqVolRepository;
+use App\Repository\MembresRepository;
+use ApiPlatform\Core\DataProvider\RestrictedDataProviderInterface;
+use ApiPlatform\Core\DataProvider\ContextAwareCollectionDataProviderInterface;
+use Symfony\Component\Security\Core\Security;
+
+class SeqVolDataProvider implements ContextAwareCollectionDataProviderInterface, RestrictedDataProviderInterface {
+
+    private $repo;
+    private $repoMembre;
+    private $security;
+
+    public function __construct(SeqVolRepository $repo, MembresRepository $repoMembre, Security $security)
+    {
+        $this->repo = $repo;
+        $this->repoMembre = $repoMembre;
+        $this->security = $security;
+    }
+
+    public function getCollection(string $resourceClass, ?string $operationName = null, array $context = [])
+    {
+        $seqvols = $this->repo->findAll();
+        $user = $this->security->getUser();
+        // $user = $this->repoMembre->findOneBy(['uueract' => ])
+        dd($seqvols, $user);
+    }
+
+    public function supports(string $resourceClass, ?string $operationName = null, array $context = []): bool
+    {
+        return $resourceClass === SeqVol::class && $operationName === 'get';
+    }
+
+}
